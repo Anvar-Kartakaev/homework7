@@ -8,8 +8,8 @@ public class Main {
         int totalMoneyBank = 0;
         int months = 0;
         while (totalMoneyBank <= 2_459_000) {
-            totalMoneyBank = totalMoneyBank + plusMoneyBank;
-            totalMoneyBank = totalMoneyBank + totalMoneyBank/100;
+            totalMoneyBank += plusMoneyBank; //Ежемесячно вкладываем 15 000 рублей
+            totalMoneyBank = (totalMoneyBank * 110) / 100; //Процент накопления 10% в месяц на остаток
             months++;
             System.out.println("Месяц " + months + ", сумма накоплений равна " + totalMoneyBank + " рублей");
         }
@@ -35,8 +35,6 @@ public class Main {
         int deathRate = 8 * (countryY / 1000);
         int year = 2000;
         while (year < 2010) {
-            birthRate++;
-            deathRate++;
             countryY = (countryY + birthRate) - deathRate;
             year++;
             System.out.println("Год " + year + ", численность населения составляет " + countryY);
